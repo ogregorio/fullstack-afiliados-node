@@ -10,7 +10,7 @@ export class TransactionEntity extends DefaultBaseEntity {
   @Column()
   typeId: string;
 
-  @Column()
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   date: Date;
 
   @Column()
