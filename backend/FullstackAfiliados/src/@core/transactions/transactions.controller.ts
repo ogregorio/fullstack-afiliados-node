@@ -10,7 +10,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiTags, ApiConsumes, ApiBody } from '@nestjs/swagger';
 import { TransactionsService } from './transactions.service';
 import { Express } from 'express';
-import MultipartFormDataFileSchema from '../@schemas/file-multipart-form.schema';
+import MultipartFormDataFileSchema from '../../@schemas/file-multipart-form.schema';
 import { Salesman } from 'src/@types/salesman.type';
 import { TransactionEntity } from 'src/@entities/transaction.entity';
 

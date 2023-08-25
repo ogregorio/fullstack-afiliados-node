@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { TransactionsModule } from './transactions/transactions.module';
+import { TransactionsModule } from './@core/transactions/transactions.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import databaseConfig from 'src/@configs/database-config';
 import { TypeOrmModule } from '@nestjs/typeorm';
