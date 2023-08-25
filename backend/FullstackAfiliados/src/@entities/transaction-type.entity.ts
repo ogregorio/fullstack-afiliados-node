@@ -1,9 +1,9 @@
 import { Entity, Column, OneToMany } from 'typeorm';
-import { Transaction } from 'src/@entities/transaction.entity';
+import { TransactionEntity } from 'src/@entities/transaction.entity';
 import { DefaultBaseEntity } from 'src/@entities/base.entity';
 
 @Entity()
-export class TransactionType extends DefaultBaseEntity {
+export class TransactionTypeEntity extends DefaultBaseEntity {
   @Column()
   type: number;
 
@@ -16,6 +16,6 @@ export class TransactionType extends DefaultBaseEntity {
   @Column()
   signal: boolean;
 
-  @OneToMany(() => Transaction, (transaction) => transaction.type)
-  transactions: Transaction[];
+  @OneToMany(() => TransactionEntity, (transaction) => transaction.type)
+  transactions: TransactionEntity[];
 }

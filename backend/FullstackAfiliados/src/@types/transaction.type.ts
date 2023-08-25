@@ -1,7 +1,7 @@
 export type Transaction = {
-  RelativeType: number;
-  Date: Date;
-  Product: string;
-  Amount: number;
-  Salesman: string;
+  relativeType: number;
+  date: Date;
+  product: string;
+  amount: number;
+  salesman: string;
 };

@@ -3,8 +3,8 @@ import { TransactionsModule } from './transactions/transactions.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import databaseConfig from 'src/@configs/database-config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Transaction } from 'src/@entities/transaction.entity';
-import { TransactionType } from 'src/@entities/transaction-type.entity';
+import { TransactionEntity } from 'src/@entities/transaction.entity';
+import { TransactionTypeEntity } from 'src/@entities/transaction-type.entity';
 import { SeedService } from 'src/@bootstrap/seed.service';
 
 @Module({
@@ -14,7 +14,7 @@ import { SeedService } from 'src/@bootstrap/seed.service';
       isGlobal: true,
       load: [databaseConfig],
     }),
-    TypeOrmModule.forFeature([TransactionType, Transaction]),
+    TypeOrmModule.forFeature([TransactionTypeEntity, TransactionEntity]),
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
@@ -24,7 +24,7 @@ import { SeedService } from 'src/@bootstrap/seed.service';
         username: configService.get<string>('database.username'),
         password: configService.get<string>('database.password'),
         database: configService.get<string>('database.database'),
-        entities: [Transaction, TransactionType],
+        entities: [TransactionTypeEntity, TransactionEntity],
         synchronize: true,
       }),
     }),

@@ -8,11 +8,11 @@ function parseSalesFile(content: string): Transaction[] {
     for (const line of lines) {
       if (line.trim() !== '') {
         const transaction = {
-          RelativeType: parseInt(line.substring(0, 1)),
-          Date: new Date(Date.parse(line.substring(1, 26))),
-          Product: line.substring(26, 56).trim(),
-          Amount: parseFloat(line.substring(56, 66)) / 100,
-          Salesman: line.substring(66).trim(),
+          relativeType: parseInt(line.substring(0, 1)),
+          date: new Date(Date.parse(line.substring(1, 26))),
+          product: line.substring(26, 56).trim(),
+          amount: parseFloat(line.substring(56, 66)) / 100,
+          salesman: line.substring(66).trim(),
         };
         if (isNotValid(transaction)) {
           throw new Error('Failed at reading transactions file');
@@ -28,7 +28,7 @@ function parseSalesFile(content: string): Transaction[] {
 }
 
 const isNotValid = (t: Transaction): boolean => {
-  return isNaN(t.Amount) || !(t.Date instanceof Date);
+  return isNaN(t.amount) || !(t.date instanceof Date);
 };
 
 export default parseSalesFile;

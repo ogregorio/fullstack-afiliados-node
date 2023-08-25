@@ -1,11 +1,11 @@
 import { Entity, Column, ManyToOne } from 'typeorm';
-import { TransactionType } from 'src/@entities/transaction-type.entity';
+import { TransactionTypeEntity } from 'src/@entities/transaction-type.entity';
 import { DefaultBaseEntity } from 'src/@entities/base.entity';
 
 @Entity()
-export class Transaction extends DefaultBaseEntity {
-  @ManyToOne(() => TransactionType, (type) => type.transactions)
-  type: TransactionType;
+export class TransactionEntity extends DefaultBaseEntity {
+  @ManyToOne(() => TransactionTypeEntity, (type) => type.transactions)
+  type: TransactionTypeEntity;
 
   @Column()
   typeId: string;
@@ -16,7 +16,7 @@ export class Transaction extends DefaultBaseEntity {
   @Column()
   product: string;
 
-  @Column()
+  @Column('decimal', { precision: 10, scale: 2 })
   amount: number;
 
   @Column()

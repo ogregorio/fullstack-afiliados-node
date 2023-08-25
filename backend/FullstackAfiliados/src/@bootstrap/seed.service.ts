@@ -1,13 +1,13 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { TransactionType } from 'src/@entities/transaction-type.entity';
+import { TransactionTypeEntity } from 'src/@entities/transaction-type.entity';
 
 @Injectable()
 export class SeedService implements OnModuleInit {
   constructor(
-    @InjectRepository(TransactionType)
-    private transactionTypeRepository: Repository<TransactionType>,
+    @InjectRepository(TransactionTypeEntity)
+    private transactionTypeRepository: Repository<TransactionTypeEntity>,
   ) {}
 
   async onModuleInit() {
