@@ -5,6 +5,7 @@ import databaseConfig from 'src/@configs/database-config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Transaction } from 'src/@entities/transaction.entity';
 import { TransactionType } from 'src/@entities/transaction-type.entity';
+import { SeedService } from 'src/@bootstrap/seed.service';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { TransactionType } from 'src/@entities/transaction-type.entity';
       isGlobal: true,
       load: [databaseConfig],
     }),
+    TypeOrmModule.forFeature([TransactionType, Transaction]),
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
@@ -27,5 +29,6 @@ import { TransactionType } from 'src/@entities/transaction-type.entity';
       }),
     }),
   ],
+  providers: [SeedService],
 })
 export class AppModule {}
