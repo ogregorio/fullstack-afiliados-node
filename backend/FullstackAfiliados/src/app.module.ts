@@ -2,17 +2,20 @@ import { Module } from '@nestjs/common';
 import { TransactionsModule } from './@core/transactions/transactions.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import databaseConfig from 'src/@configs/database-config';
+import applicationConfig from 'src/@configs/application-config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TransactionEntity } from 'src/@entities/transaction.entity';
 import { TransactionTypeEntity } from 'src/@entities/transaction-type.entity';
 import { SeedService } from 'src/@bootstrap/seed.service';
+import { AuthModule } from 'src/@core/auth/auth.module';
 
 @Module({
   imports: [
     TransactionsModule,
+    AuthModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [databaseConfig],
+      load: [databaseConfig, applicationConfig],
     }),
     TypeOrmModule.forFeature([TransactionTypeEntity, TransactionEntity]),
     TypeOrmModule.forRootAsync({

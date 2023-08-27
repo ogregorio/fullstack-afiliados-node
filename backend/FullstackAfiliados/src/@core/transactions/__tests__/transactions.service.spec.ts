@@ -4,10 +4,7 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { TransactionEntity } from 'src/@entities/transaction.entity';
 import { TransactionTypeEntity } from 'src/@entities/transaction-type.entity';
-import {
-  generateRawSalesmanData,
-  generateSalesmanData,
-} from 'src/@entities/__mocks__/salesman.mock';
+import { generateSalesmanData } from 'src/@entities/__mocks__/salesman.mock';
 import { generateTransactionData } from 'src/@entities/__mocks__/transaction.mock';
 
 describe('TransactionsService', () => {
