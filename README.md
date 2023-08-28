@@ -42,7 +42,7 @@ docker-compose --env-file .env.example -f docker-compose.yml up
 
 And the applications ran on the following URLs:
 
-- Backend: [http://localhost:5001/swagger](http://localhost:5001/swagger)
+- Backend: [http://localhost:5001/api](http://localhost:5001/swagger)
 - Frontend: [http://localhost:4173/login](http://localhost:4173/login)
 
 At the frontend login, your username should be: SYSTEM_USERNAME and the password SYSTEM_PASSWORD added to the .env
